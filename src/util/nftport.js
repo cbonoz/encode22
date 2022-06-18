@@ -27,7 +27,7 @@ export const createSignatureNFT = async (
 
   var options = {
     method: "POST",
-    url: "https://api.nftport.xyz/v0/mints/easy/files",
+    url: 'https://api.nftport.xyz/v0/files',
     params,
     headers: {
       "Content-Type": "multipart/form-data",

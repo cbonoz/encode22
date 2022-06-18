@@ -30,6 +30,10 @@ function History(props) {
   const [loading, setLoading] = useState();
   const [data, setData] = useState();
 
+  useEffect(() => {
+    setData(undefined)
+  }, [chainId])
+
   const fetchHistory = async () => {
     if (!address || !chainId) {
       alert("Address and chainId are required");

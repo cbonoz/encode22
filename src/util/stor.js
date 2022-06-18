@@ -1,4 +1,5 @@
 // import { Web3Storage } from "web3.storage";
+import axios from "axios";
 import { Web3Storage } from "web3.storage/dist/bundle.esm.min.js"; // webpack 4
 
 const API_KEY = process.env.REACT_APP_STORAGE_KEY;
@@ -29,6 +30,11 @@ export async function storeFiles(files) {
   const cid = await client.put(files);
   console.log("stored files with cid:", cid);
   return cid;
+}
+
+export function fetchMetadata(cid) {
+  const url = `${ipfsUrl(cid)}/metadata.json`
+  return axios.get(url)
 }
 
 export async function retrieveFiles(cid) {

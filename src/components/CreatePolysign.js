@@ -52,23 +52,21 @@ function CreatePolysign(props) {
     try {
       // 1) deploy base contract with metadata,
       const contract = await deployContract(data.title, data.signerAddress);
-      res["contract"] = contract;
+      // res["contract"] = contract;
+      res["address"] = contract.address
+      res["files"] = files.map(f => f.path)
 
-      const obj = {
-        ...data,
-        address: contract.address
-      }
-      const blob = new Blob([JSON.stringify(obj)], { type: 'application/json' })
+      const blob = new Blob([JSON.stringify(res)], { type: 'application/json' })
       const metadataFile = new File([blob], 'metadata.json')
       const allFiles = [...files, metadataFile]
 
       // 2) Upload files to ipfs,
-      const metadata = await storeFiles(allFiles);
+      const cid = await storeFiles(allFiles);
+      res['cid'] = cid
 
       // 3) return shareable url.
-      res["signatureUrl"] = signatureUrl(metadata.hash());
-      res["hash"] = metadata.hash();
-      res["contractUrl"] = getExplorerUrl(contract.address);
+      res["signatureUrl"] = signatureUrl(cid);
+      res["contractUrl"] = getExplorerUrl(res.address);
 
       // Result rendered after successful doc upload + contract creation.
       setResult(res);
@@ -156,7 +154,7 @@ function CreatePolysign(props) {
             {result && (
               <div>
                 <div className="success-text">Created esignature request!</div>
-                <a href={ipfsUrl(result.hash)} target="_blank">
+                <a href={ipfsUrl(result.cid)} target="_blank">
                   View metadata
                 </a>
                 <br />

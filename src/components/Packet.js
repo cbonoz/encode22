@@ -48,6 +48,7 @@ function Packet(props) {
   }
 
   const filesToSign = files || [];
+  console.log('files', filesToSign)
 
   return (
     <div>
@@ -61,7 +62,7 @@ function Packet(props) {
           View Contract ({ACTIVE_CHAIN.name})
         </a>
         <br />
-        <a href={ipfsUrl(signId)} target="_blank">
+        <a href={ipfsUrl(signId, 'metadata.json')} target="_blank">
           View Request
         </a>
       </div>
@@ -75,10 +76,10 @@ function Packet(props) {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                openUrl(f.url);
+                openUrl(ipfsUrl(signId, f));
               }}
             >
-              {f.name}
+              {f}
             </a>
           </li>
         );

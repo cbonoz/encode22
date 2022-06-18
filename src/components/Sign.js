@@ -3,7 +3,7 @@ import { Spin } from "antd";
 import Packet from "./Packet";
 import { useParams } from "react-router-dom";
 import { createSignatureNFT, getMintedNFT } from "../util/nftport";
-import { retrieveFiles } from "../util/stor";
+import { fetchMetadata, retrieveFiles } from "../util/stor";
 import { getExplorerUrl } from "../util";
 import {
   getPrimaryAccount,
@@ -11,11 +11,10 @@ import {
 } from "../contract/polysignContract";
 
 function Sign({ account }) {
-  const { signId } = useParams();
+  const { signId } = useParams(); // cid
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState();
-  const [authed, setAuthed] = useState(false);
 
   const fetchData = async () => {
     console.log("fetch", signId);
@@ -26,7 +25,7 @@ function Sign({ account }) {
     setLoading(true);
 
     try {
-      const res = await retrieveFiles(signId);
+      const res = await fetchMetadata(signId);
       setData(res.data);
       console.log("esignature request", res.data);
     } catch (e) {
@@ -41,7 +40,11 @@ function Sign({ account }) {
     fetchData();
   }, [signId]);
 
-  const { description, title, signerAddress, contractAddress } = data;
+  const authed = useMemo(() => {
+    return data && (data.signerAddress || '').toLowerCase() === (account || '').toLowerCase()
+  } ,[data, account])
+
+  const { description, title, signerAddress, address: contractAddress } = data;
 
   const sign = async (signatureData) => {
     let nftResults = {};
