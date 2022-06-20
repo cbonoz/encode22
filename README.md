@@ -12,6 +12,10 @@ Enables Docusign-like capabilities and use-cases using web3 infrastructure.
 
 Submitted to the Encode x Polygon Hackathon Open track / Full stack challenge.
 
+Try it out <a href="polysign.surge.sh" target="_blank">here</a>! (requires Metamask connected to Polygon testnet).
+
+Demo video: 
+
 ### Benefits
 
 - Polysign enables anyone to create and collect esignature against documents without a vendor agreement. A polygon smart contract is deployed for each request.
@@ -73,31 +77,40 @@ Github
 
 #### Home page
 
-<img src="./img/home.png" width=800/>
+<img src="./img/polysign.png" width=800 />
 
 #### Creating a request
 
-<img src="./img/create.png" width=800/>
+<img src="./img/create.png" width=800 />
 
-### Request saved via Moralis on IPFS and as smart contract
+### Request saved via IPFS (both the docs and request metadata).
 
-<img src="./img/request.png" width=800>
+<img src="./img/ipfs_docs.png" width=800 />
 
 ### Esigning
 
-<img src="./img/esign.png" width=800>
+<img src="./img/esign.png" width=800 />
+
+### Both the creation of the request and the signature get saved as events on a smart contract
+
+<img src="./img/transactions.png" width=800 />
 
 ### Completion esignature NFT
 
-<img src="./img/completed.png" width=800>
+<img src="./img/nft.png" width=800 />
 
 ### Deployed Contract
 
-<img src="./img/contract.png" width=800/ >
+<img src="./img/contract.png" width=800 />
 
 ### Contract source
 
-<img src="./img/sol.png" width=800/ >
+<img src="./img/sol.png" width=800 />
+
+### Viewing signing history via Covalent.
+
+<img src="./img/history.png" width=800 />
 
 ### Useful links
-<!-- https://medium.com/encode-club/announcing-the-encode-x-polygon-partnership-and-initiatives-544cbddc5a0b -->
+* https://medium.com/encode-club/announcing-the-encode-x-polygon-partnership-and-initiatives-544cbddc5a0b
+* https://encodeclub.notion.site/How-to-Submit-cfb0ea19807b4ac8bac719a916f85f58
