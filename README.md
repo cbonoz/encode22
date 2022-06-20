@@ -14,7 +14,7 @@ Submitted to the Encode x Polygon Hackathon Open track / Full stack challenge.
 
 Try it out <a href="polysign.surge.sh" target="_blank">here</a>! (requires Metamask connected to Polygon testnet).
 
-Demo video: 
+Demo video: https://youtu.be/gkmJ_J3xwd4
 
 ### Benefits
 
