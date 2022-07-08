@@ -16,6 +16,8 @@ Try it out <a href="polysign.surge.sh" target="_blank">here</a>! (requires Metam
 
 Demo video: https://youtu.be/gkmJ_J3xwd4
 
+Intro deck: https://docs.google.com/presentation/d/16lMtAFuxgKS1CqZ9Gi7hsV_4iHke1NziOeziHAkSE8E/edit?usp=sharing
+
 ### Benefits
 
 - Polysign enables anyone to create and collect esignature against documents without a vendor agreement. A polygon smart contract is deployed for each request.
